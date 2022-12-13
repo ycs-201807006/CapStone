@@ -468,11 +468,8 @@ int conServer(char* ip_str, int port_str) { // 서버 연결
 
 	memset(&addr, 0, sizeof(addr));
 	addr.sin_family = AF_INET; // 소켓은 Internet 타입
-	//addr.sin_addr.s_addr = inet_addr(ip_str); // 입력한 ip로 접속
-	//addr.sin_addr.s_addr = inet_addr("115.21.130.201"); // 입력한 ip로 접속
-	//addr.sin_addr.s_addr = inet_addr("192.168.200.109"); // 입력한 ip로 접속
-	addr.sin_addr.s_addr = inet_addr("61.84.40.154"); // 입력한 ip로 접속
-	//addr.sin_port = htons(port_str); // 입력한 포트로 접속
+	addr.sin_addr.s_addr = inet_addr(ip_str); // 입력한 ip로 접속
+	addr.sin_port = htons(port_str); // 입력한 포트로 접속
 	addr.sin_port = htons(9000); // 입력한 포트로 접속
 
 	if (connect(sock, (SOCKADDR*)&addr, sizeof(SOCKADDR_IN)) == SOCKET_ERROR) // 접속
